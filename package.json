@@ -1,0 +1,31 @@
+{
+    "name": "com.github.jamescourtney.flatsharp.runtime",
+    "version": "0.0.0",
+    "displayName": "FlatSharp.Runtime (DLL)",
+    "description": "Fast, idiomatic C# implementation of Flatbuffers -- Unity-compatible Runtime DLL only",
+    "unity": "2021.1",
+    "files": [
+        "**.meta",
+        "**.md",
+        "FlatSharp.Runtime*/lib/netstandard2.1/*.dll"
+    ],
+    "dependencies": {},
+    "keywords": [
+        "csharp",
+        "serialization",
+        "flatbuffers"
+    ],
+    "author": {
+        "name": "Chris Helmich",
+        "email": "kagekirin@gmail.com",
+        "url": "https://github.com/kagekirin"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kagekirin/flatsharp.runtime.upm.git",
+        "directory": "flatsharp.runtime.upm"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/@kagekirin"
+    }
+}
