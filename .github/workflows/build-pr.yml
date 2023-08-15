@@ -26,3 +26,35 @@ jobs:
       with:
         seed: FlatSharp.Runtime.UPM
     - uses: kagekirin/gha-npm/.github/actions/npm-pack@main
+
+  test-tag:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: kagekirin/gha-utils/.github/actions/git-checkout-tags@main
+    - uses: kagekirin/gha-utils/.github/actions/install-prerequisites@main
+    - uses: kagekirin/gha-utils/.github/actions/install-version-tools@main
+    - uses: kagekirin/metagen-js/.github/actions/install@main
+    - uses: kagekirin/gha-dotnet/.github/actions/nuget-fetch@main
+      with:
+        package: FlatSharp.Runtime
+        framework: netstandard2.1
+        prerelease: true
+        outdir: ./
+    - id: current-version
+      uses: kagekirin/gha-dotnet/.github/actions/dll-get-version@main
+      with:
+        file: FlatSharp.Runtime*/lib/netstandard2.1/FlatSharp.Runtime.dll
+    - id: compare
+      uses: kagekirin/node-package-version/.github/actions/compare-version@main
+      with:
+        file: package.json
+        version: ${{ steps.current-version.outputs.version }}
+    - if: "${{ steps.compare.outputs.result }} > 0"
+      uses: kagekirin/node-package-version/.github/actions/set-version@main
+      with:
+        file: package.json
+        version: ${{ steps.current-version.outputs.version }}
+    - shell: bash
+      run: |-
+        npm version ${{ steps.current-version.outputs.version }} --allow-same-version
