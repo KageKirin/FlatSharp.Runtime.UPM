@@ -2,7 +2,7 @@
 
 ## License for the scripts in this repo
 
-Copyright (c) 2022 Christian Helmich, DeNA,LLC
+Copyright (c) 2023 Christian Helmich
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
