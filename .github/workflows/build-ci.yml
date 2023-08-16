@@ -34,3 +34,8 @@ jobs:
       with:
         prelerease: test
         buildmeta: npm
+    - uses: kagekirin/gha-utils/.github/actions/git-push-tag@main
+      with:
+        remote: origin
+        branch: main
+        dry-run: true
