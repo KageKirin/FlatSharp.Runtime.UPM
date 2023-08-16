@@ -1,6 +1,6 @@
 {
     "name": "com.github.jamescourtney.flatsharp.runtime",
-    "version": "0.0.0",
+    "version": "7.2.3",
     "displayName": "FlatSharp.Runtime (DLL)",
     "description": "Fast, idiomatic C# implementation of Flatbuffers -- Unity-compatible Runtime DLL only",
     "unity": "2021.1",
