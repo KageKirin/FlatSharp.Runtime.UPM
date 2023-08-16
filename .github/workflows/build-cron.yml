@@ -33,3 +33,4 @@ jobs:
       with:
         remote: origin
         branch: main
+        dry-run: false
