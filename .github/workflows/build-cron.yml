@@ -30,4 +30,6 @@ jobs:
         useremail: "kagekirin+githubci@gmail.com"
     - uses: ./.github/jobactions/tag
     - uses: kagekirin/gha-utils/.github/actions/git-push-tag@main
-
+      with:
+        remote: origin
+        branch: main
