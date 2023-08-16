@@ -35,3 +35,9 @@ jobs:
       with:
         prelerease: test
         buildmeta: npm
+    - if: ${{ ! endsWith(github.ref_name, 'merge') }}
+      uses: kagekirin/gha-utils/.github/actions/git-push-tag@main
+      with:
+        remote: origin
+        branch: ${{ github.head_ref || github.ref_name }} # => the former for PR, the latter as fallback (regular push)
+        dry-run: true
